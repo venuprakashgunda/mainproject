@@ -1,0 +1,69 @@
+<!DOCTYPE html>>
+<html>
+    <head>
+        <link  rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+        <link  rel="stylesheet" href="bootstrap-4.5.0-dist/css/bootstrap.min.css" />
+        <script type="text/javascript" src="bootstrap-4.5.0-dist/js/bootstrap.min.js" ></script>
+        <script type="text/javascript" src="bootstrap-4.5.0-dist/js/Jquery.min.js">
+        </script>
+        <link href="font-awesome-4.7.0/css/font-awesome.min.css" />
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#btnLogin").click(function(){
+              var api_url ="http://localhost:2021/register1";
+                var data = {
+                    "username": $('#id1').val(),
+                   "password": $('#id2').val()
+                }
+                $.ajax({
+                    url:api_url,
+                    type : "GET" ,
+                    dataType : "json",
+                    data : JSON.stringify(data),
+                    //contentType :'application/json;charset = utf-8',
+                    success: function (data) {
+                        alert('sucess');
+                        if(data==1){
+                            alert("sucessfull!!");
+                        window.open("https://www.w3schools.com");
+                        }
+                    },
+                    error:function(){
+                        alert('wrong with insert ');
+                       
+                    }
+                    });
+                });
+                });
+            </script>
+    </head>
+    <body>
+        <form action="https://www.w3schools.com" method="GET">
+        <div class="container">
+           
+                <h1 align = left>LOGIN PAGE</h1>
+                <label for="UserName">UserName</label>
+                <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                </div>
+                                <div class="input-group-prepend">
+                                <input type="text"   class="form-control"  id="id1" placeholder="Enter UserName">
+                                </div>
+                            </div>
+                
+                <label for="Password">Password</label>
+                <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-key"></i></span>
+                                </div>
+                              <div class="input-group-input-group-prepend">
+                                <input type="password"   class="form-control" id="id2" placeholder="Enter Password">
+                            </div>
+                            </div>
+                <button type="button" class="btn btn-primary" id="btnLogin">Sign In</button>   
+        </div>
+    </form>
+    </body>
+    </html>
